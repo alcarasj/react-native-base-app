@@ -3,7 +3,7 @@ A base app in React Native with a ready-to-use development infrastructure.
 ## Installation
 This project requires Node to be installed on your machine.
 1. Install dependencies with `make install`.
-2. Start the Expo server with `make start`.
+2. Start the Expo server with `make dev`.
 
 ## Grunt
 Grunt CLI must be installed on your machine for linting with ESLint.
