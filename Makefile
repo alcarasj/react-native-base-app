@@ -17,4 +17,4 @@ dev:
 	npm start 
 
 lint:
-	grunt eslint
+	npm run lint
