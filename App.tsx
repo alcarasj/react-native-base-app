@@ -9,7 +9,7 @@ const RootStack = createStackNavigator();
 
 const App: React.FC<Props> = (props) => {
   return (
-  <NavigationContainer>
+    <NavigationContainer>
       <RootStack.Navigator>
         <RootStack.Screen name="Home" component={HomeScreen} />
       </RootStack.Navigator>
