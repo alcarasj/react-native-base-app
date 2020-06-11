@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, AppRegistry } from 'react-native';
 
-const BlankScreenTemplate: React.FC<Props> = () => {
+const HomeScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text>BlankScreenTemplate</Text>
+      <Text>Welcome!</Text>
     </View>
   );
 };
@@ -18,5 +18,5 @@ const styles = StyleSheet.create({
   },
 });
 
-BlankScreenTemplate.displayName = 'BlankScreenTemplate';
-export default BlankScreenTemplate;
+AppRegistry.registerComponent('HomeScreen', () => HomeScreen);
+export default HomeScreen;

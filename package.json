@@ -1,12 +1,36 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "components/App.tsx",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint": "eslint ./*.tsx --fix && eslint ./**/*.tsx --fix"
+    "lint": "eslint ./**/*.tsx ./tests/**/*.js --fix",
+    "test": "jest"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "preset": "jest-expo",
+    "rootDir": "./",
+    "setupFilesAfterEnv": ["jest-enzyme"],
+    "testEnvironment": "enzyme",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)"
+    ],
+    "setupFiles": [
+      "./node_modules/react-native-gesture-handler/jestSetup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/mocks/FileMock.js",
+      "\\.(css|less)$": "<rootDir>/tests/mocks/StyleMock.js"
+    },
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
+    "coverageDirectory": "<rootDir>/cover"
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.6",
@@ -24,13 +48,22 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
+    "@babel/preset-typescript": "^7.10.1",
     "@types/react": "~16.9.23",
     "@types/react-native": "~0.61.17",
     "@typescript-eslint/eslint-plugin": "^3.1.0",
     "@typescript-eslint/parser": "^3.1.0",
     "babel-preset-expo": "~8.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^7.2.0",
+    "eslint-plugin-jest": "^23.13.2",
     "eslint-plugin-react": "^7.20.0",
+    "jest": "^26.0.1",
+    "jest-environment-enzyme": "^7.1.2",
+    "jest-enzyme": "^7.1.2",
+    "jest-expo": "^37.0.0",
+    "react-test-renderer": "^16.13.1",
     "typescript": "~3.8.3"
   },
   "private": true
