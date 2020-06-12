@@ -17,4 +17,8 @@ dev:
 	npm start 
 
 lint:
-	npm run lint
+	npm run lint:fix
+
+test:
+	make lint
+	npm test

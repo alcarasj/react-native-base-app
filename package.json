@@ -6,14 +6,17 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint": "eslint ./**/*.tsx ./tests/**/*.js --fix",
+    "lint": "eslint ./**/*.tsx ./tests/**/*.js",
+    "lint:fix": "eslint ./**/*.tsx ./tests/**/*.js --fix",
     "test": "jest"
   },
   "jest": {
     "collectCoverage": true,
     "preset": "jest-expo",
     "rootDir": "./",
-    "setupFilesAfterEnv": ["jest-enzyme"],
+    "setupFilesAfterEnv": [
+      "jest-enzyme"
+    ],
     "testEnvironment": "enzyme",
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)"
