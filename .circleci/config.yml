@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
 jobs:
-  build-and-test:
+  test:
     executor:
       name: node/default
     steps:
@@ -11,8 +11,9 @@ jobs:
           steps:
             - run: npm install
             - run: npm run lint
+            - run: sed -i 's/require.requireActual/jest.requireActual/g' node_modules/jest-expo/src/preset/setup.js
             - run: npm test
 workflows:
     build-and-test:
       jobs:
-        - build-and-test
+        - test
